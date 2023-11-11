@@ -192,6 +192,14 @@ contract RetrolistAttestor {
             bytes32 r;
             bytes32 s;
             uint8 v;
+            // ecrecover takes the signature parameters, and the only way to get them
+            // currently is to use assembly.
+            /// @solidity memory-safe-assembly
+            assembly {
+                r := mload(add(listSignature, 0x20))
+                s := mload(add(listSignature, 0x40))
+                v := byte(0, mload(add(listSignature, 0x60)))
+            }
 
             uid = IEAS(EAS_ADDRESS).attestByDelegation(
                 DelegatedAttestationRequest({
