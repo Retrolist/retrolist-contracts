@@ -77,9 +77,8 @@ contract RetrolistAttestor {
                         ),
                         value: 0
                     }),
-                    signature: Signature({v: v, r: r, s: s}),
-                    attester: msg.sender,
-                    deadline: DEADLINE
+                    signature: EIP712Signature({v: v, r: r, s: s}),
+                    attester: msg.sender
                 })
             );
         } else {
@@ -212,9 +211,8 @@ contract RetrolistAttestor {
                         data: listAttr.data,
                         value: 0
                     }),
-                    signature: Signature({v: v, r: r, s: s}),
-                    attester: msg.sender,
-                    deadline: DEADLINE
+                    signature: EIP712Signature({v: v, r: r, s: s}),
+                    attester: msg.sender
                 })
             );
         } else {
