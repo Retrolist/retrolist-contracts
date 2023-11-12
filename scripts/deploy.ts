@@ -1,7 +1,7 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const attestor = await ethers.deployContract("RetrolistAttestor");
+  const attestor = await ethers.deployContract("RetrolistAttestor", { nonce: 1 });
   await attestor.waitForDeployment();
 
   console.log("RetrolistAttestor", await attestor.getAddress())

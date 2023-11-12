@@ -16,6 +16,7 @@ uint256 constant DOMAIN_EXPIRATION = 1735689600;
 
 bytes32 constant BADGEHOLDER_SCHEMA = 0xfdcfdad2dbe7489e0ce56b260348b7f14e8365a8a325aef9834818c00d46b31b;
 address constant BADGEHOLDER_ATTESTER = 0x621477dBA416E12df7FF0d48E14c4D20DC85D7D9;
+address constant BADGEHOLDER_ATTESTER_2 = 0x1195e9bcBceb56Cb67E78933D4996d0489AC4140;
 
 interface IOwnerOf {
     function ownerOf(bytes32 node) external view returns (address owner);
@@ -177,7 +178,10 @@ contract RetrolistAttestor {
         
         if (
             badgeholderAttr.schema != BADGEHOLDER_SCHEMA ||
-            badgeholderAttr.attester != BADGEHOLDER_ATTESTER ||
+            (
+                badgeholderAttr.attester != BADGEHOLDER_ATTESTER &&
+                badgeholderAttr.attester != BADGEHOLDER_ATTESTER_2
+            ) ||
             badgeholderAttr.recipient != msg.sender ||
             badgeholderAttr.revocationTime != 0
         ) {
