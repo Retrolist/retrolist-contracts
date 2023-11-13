@@ -22,7 +22,7 @@ interface IOwnerOf {
     function ownerOf(bytes32 node) external view returns (address owner);
 }
 
-contract RetrolistAttestor {
+contract RetrolistAttester {
     /**
      * @dev The signature has an invalid length.
      */

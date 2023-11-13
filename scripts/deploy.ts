@@ -1,10 +1,10 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const attestor = await ethers.deployContract("RetrolistAttestor", { nonce: 1 });
+  const attestor = await ethers.deployContract("RetrolistAttester", { nonce: 2 });
   await attestor.waitForDeployment();
 
-  console.log("RetrolistAttestor", await attestor.getAddress())
+  console.log("RetrolistAttester", await attestor.getAddress())
 }
 
 // We recommend this pattern to be able to use async/await everywhere
